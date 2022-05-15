@@ -3,13 +3,28 @@
 function followandrew_theme_support(){
 
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
 
 
 }
 
-add_action('after_theme_setup','followandrew_theme_support');
+add_action('after_setup_theme','followandrew_theme_support');
 
+function followandrew_menus(){
 
+    $location = array(
+
+        'primary'=>"Desktop Primary left sidebar",
+        'footer'=>"Footer Menu Items"
+
+    );
+
+    register_nav_menus($location);
+
+}
+
+add_action('init','followandrew_menus');
 
 
 function followandrew_register_styles()
